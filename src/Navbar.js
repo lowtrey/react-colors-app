@@ -1,13 +1,14 @@
 import React from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import './Navbar.css';
 
 class Navbar extends React.Component {
   render() {
     const {level, changeLevel} = this.props;
     return (
       <header className='Navbar'>
-        <div className='Logo'>
+        <div className='logo'>
           <a href='#'>reactcolorpicker</a>
         </div>
         <div className='slider-container'>
