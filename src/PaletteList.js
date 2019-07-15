@@ -1,14 +1,14 @@
 import React from 'react';
+import { withStyles } from '@material-ui/styles';
 import MiniPalette from './MiniPalette';
 import styles from './styles/PaletteListStyles';
-import { withStyles } from '@material-ui/styles';
 
 class PaletteList extends React.Component {
   goToPalette(id) {
     this.props.history.push(`/palette/${id}`);
   }
   render() {
-    const {palettes, classes} = this.props;
+    const { palettes, classes } = this.props;
     return (
       <div className={classes.root}>
         <div className={classes.container}>

@@ -11,13 +11,13 @@ class ColorBox extends React.Component {
     this.changeCopyState = this.changeCopyState.bind(this);
   }
   changeCopyState() {
-    this.setState({copied: true}, () => {
-      setTimeout(() => this.setState({copied: false}), 1500);
+    this.setState({ copied: true }, () => {
+      setTimeout(() => this.setState({ copied: false }), 1500);
     });
   }
   render() {
-    const {name, background, moreUrl, showingFullPalette, classes} = this.props;
-    const {copied} = this.state;
+    const { name, background, moreUrl, showingFullPalette, classes } = this.props;
+    const { copied } = this.state;
     return (
       <CopyToClipboard text={background} onCopy={this.changeCopyState}>
         <div style={{ background }} className={classes.ColorBox}>
