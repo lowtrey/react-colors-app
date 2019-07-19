@@ -3,6 +3,7 @@ import { ChromePicker } from 'react-color';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+
 import styles from './styles/ColorPickerFormStyles';
 
 class ColorPickerForm extends React.Component {
@@ -12,7 +13,7 @@ class ColorPickerForm extends React.Component {
     this.updateCurrentColor = this.updateCurrentColor.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  };
   componentDidMount() {
     ValidatorForm.addValidationRule("isColorNameUnique", value => 
        this.props.colors.every(
@@ -24,7 +25,7 @@ class ColorPickerForm extends React.Component {
         ({ color }) => color !== this.state.currentColor
       )
     );
-  }
+  };
   updateCurrentColor(newColor) {
     this.setState({ currentColor: newColor.hex });
   };
@@ -40,11 +41,11 @@ class ColorPickerForm extends React.Component {
     };
     this.props.addNewColor(newColor);
     this.setState({ newColorName: '' });
-  }
+  };
 
   render() {
-    const { paletteIsFull, classes } = this.props;
     const { currentColor, newColorName } = this.state;
+    const { paletteIsFull, classes } = this.props;
     return (
       <div>
           <ChromePicker 

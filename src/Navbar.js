@@ -8,6 +8,7 @@ import Select from '@material-ui/core/Select';
 import Slider from 'rc-slider';
 import Snackbar from '@material-ui/core/Snackbar';
 import 'rc-slider/assets/index.css';
+
 import styles from './styles/NavbarStyles';
 
 class Navbar extends React.Component {
@@ -16,14 +17,15 @@ class Navbar extends React.Component {
     this.state = { format: 'hex', open: false };
     this.handleFormatChange = this.handleFormatChange.bind(this);
     this.closeSnackbar = this.closeSnackbar.bind(this);
-  }
+  };
   handleFormatChange(e) {
     this.setState({ format: e.target.value, open: true });
     this.props.handleChange(e.target.value);
-  }
+  };
   closeSnackbar() {
     this.setState({ open: false });
-  }
+  };
+  
   render() {
     const { level, changeLevel, showingAllColors, classes } = this.props;
     const { format, open } = this.state;

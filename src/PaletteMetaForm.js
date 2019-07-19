@@ -16,27 +16,25 @@ class PaletteMetaForm extends React.Component {
       stage: 'form',
       newPaletteName: ''
     };
-    this.handleChange = this.handleChange.bind(this);
     this.showEmojiPicker = this.showEmojiPicker.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.savePalette = this.savePalette.bind(this);
-  }
+  };
   componentDidMount() {
     ValidatorForm.addValidationRule("isPaletteNameUnique", value => 
       this.props.palettes.every(
         ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
       )
     );
-  }
+  };
   handleChange(evt) {
     this.setState({
       [evt.target.name]: evt.target.value
     });
   };
-
   showEmojiPicker() {
     this.setState({ stage: 'emoji' });
   };
-
   savePalette(emoji) {
     const newPalette = {
       paletteName: this.state.newPaletteName,
@@ -44,12 +42,10 @@ class PaletteMetaForm extends React.Component {
     };
     this.props.handleSubmit(newPalette);
     this.setState({ stage: '' });
-  }
-
+  };
   handleClickOpen = () => {
     this.setState({ open: true });
   };
-
   handleClose = () => {
     this.setState({ open: false });
   };
@@ -57,7 +53,6 @@ class PaletteMetaForm extends React.Component {
   render() {
     const { newPaletteName, stage } = this.state;
     const { hideForm } = this.props;
-
     return (
       <div>
         <Dialog open={stage === 'emoji'} onClose={hideForm}>

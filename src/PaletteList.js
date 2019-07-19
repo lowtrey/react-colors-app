@@ -12,9 +12,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import MiniPalette from './MiniPalette';
-import styles from './styles/PaletteListStyles';
 import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
+
+import styles from './styles/PaletteListStyles';
 
 class PaletteList extends React.Component {
   constructor(props) {
@@ -23,24 +24,25 @@ class PaletteList extends React.Component {
       openDeleteDialog: false,
       deletingId: ''
     };
-    this.openDialog = this.openDialog.bind(this);
-    this.closeDialog = this.closeDialog.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.closeDialog = this.closeDialog.bind(this);
     this.goToPalette = this.goToPalette.bind(this);
-  }
+    this.openDialog = this.openDialog.bind(this);
+  };
   openDialog(id) {
     this.setState({ openDeleteDialog: true, deletingId: id });
-  }
+  };
   closeDialog() {
     this.setState({ openDeleteDialog: false, deletingId: '' });
-  }
+  };
   goToPalette(id) {
     this.props.history.push(`/palette/${id}`);
-  }
+  };
   handleDelete() {
     this.props.deletePalette(this.state.deletingId);
     this.closeDialog();
-  }
+  };
+  
   render() {
     const { palettes, classes } = this.props;
     const { openDeleteDialog } = this.state;

@@ -10,6 +10,7 @@ import PaletteMetaForm from './PaletteMetaForm';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+
 import styles from './styles/PaletteFormNavStyles';
 
 class PaletteFormNav extends React.Component {
@@ -19,7 +20,7 @@ class PaletteFormNav extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.showForm = this.showForm.bind(this);
     this.hideForm = this.hideForm.bind(this);
-  }
+  };
   handleChange(evt) {
     this.setState({
       [evt.target.name]: evt.target.value
@@ -27,10 +28,11 @@ class PaletteFormNav extends React.Component {
   };
   showForm() {
     this.setState({ formShowing: true });
-  }
+  };
   hideForm() {
     this.setState({ formShowing: false });
-  }
+  };
+  
   render() {
     const { classes, open, palettes, handleSubmit, handleDrawerOpen } = this.props;
     const { formShowing } = this.state;

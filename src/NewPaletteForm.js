@@ -11,6 +11,7 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import PaletteFormNav from './PaletteFormNav';
+
 import seedColors from './seedColors';
 import styles from './styles/NewPaletteFormStyles';
 
@@ -24,12 +25,12 @@ class NewPaletteForm extends React.Component {
       open: true,
       colors: seedColors[0].colors
     };
-    this.addNewColor = this.addNewColor.bind(this);
+    this.addRandomColor = this.addRandomColor.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addNewColor = this.addNewColor.bind(this);
     this.removeColor = this.removeColor.bind(this);
     this.clearColors = this.clearColors.bind(this);
-    this.addRandomColor = this.addRandomColor.bind(this);
   };
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -53,20 +54,20 @@ class NewPaletteForm extends React.Component {
     newPalette.colors = this.state.colors;
     this.props.savePalette(newPalette);
     this.props.history.push('/');
-  }
+  };
   removeColor(colorName) {
     this.setState({
       colors: this.state.colors.filter(color => (color.name !== colorName))
     });
-  }
+  };
   onSortEnd = ({oldIndex, newIndex}) => {
     this.setState(({colors}) => ({
       colors: arrayMove(colors, oldIndex, newIndex)
     }));
-  }
+  };
   clearColors() {
     this.setState({ colors: [] });
-  }
+  };
   addRandomColor() {
     const allColors = this.props.palettes.map(p => p.colors).flat();
     let rand;
@@ -76,9 +77,9 @@ class NewPaletteForm extends React.Component {
       rand = Math.floor(Math.random() * allColors.length);
       randomColor = allColors[rand];
       isDuplicateColor = this.state.colors.some(color => color.name === randomColor.name);
-    }
+    };
     this.setState({ colors: [...this.state.colors, randomColor] });
-  }
+  };
 
   render() {
     const { classes, maxColors, palettes } = this.props;

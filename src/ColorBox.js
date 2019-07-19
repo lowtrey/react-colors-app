@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/styles';
+
 import styles from './styles/ColorBoxStyles';
 
 class ColorBox extends React.Component {
@@ -10,12 +11,13 @@ class ColorBox extends React.Component {
     super(props);
     this.state = { copied: false };
     this.changeCopyState = this.changeCopyState.bind(this);
-  }
+  };
   changeCopyState() {
     this.setState({ copied: true }, () => {
       setTimeout(() => this.setState({ copied: false }), 1500);
     });
-  }
+  };
+  
   render() {
     const { name, background, moreUrl, showingFullPalette, classes } = this.props;
     const { copied } = this.state;
