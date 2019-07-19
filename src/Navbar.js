@@ -32,7 +32,7 @@ class Navbar extends React.Component {
     return (
       <header className={classes.Navbar}>
         <div className={classes.logo}>
-          <Link to='/'>reactcolorpicker</Link>
+          <Link to='/'>colorcopy</Link>
         </div>
         {showingAllColors && (
           <div>
