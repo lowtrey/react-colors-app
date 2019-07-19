@@ -11,6 +11,7 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import PaletteFormNav from './PaletteFormNav';
+import seedColors from './seedColors';
 import styles from './styles/NewPaletteFormStyles';
 
 class NewPaletteForm extends React.Component {
@@ -21,7 +22,7 @@ class NewPaletteForm extends React.Component {
     super(props);
     this.state = {
       open: true,
-      colors: this.props.palettes[0].colors
+      colors: seedColors[0].colors
     };
     this.addNewColor = this.addNewColor.bind(this);
     this.handleChange = this.handleChange.bind(this);
