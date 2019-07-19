@@ -11,4 +11,5 @@ function PaletteFooter(props) {
     </footer>
   );
 }
+
 export default withStyles(styles)(PaletteFooter);
