@@ -13,7 +13,14 @@ import { createBrowserHistory } from 'history';
 import seedColors from './seedColors';
 import { generatePalette } from './colorHelpers';
 
-ReactGA.initialize('UA-144187649-2');
+
+ReactGA.initialize('UA-144187649-2', {
+  debug: true,
+  titleCase: false,
+  gaOptions: {
+    userId: 123
+  }
+});
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 const history = createBrowserHistory();
