@@ -8,11 +8,9 @@ import PaletteList from './PaletteList';
 import SingleColorPalette from './SingleColorPalette';
 
 import ReactGA from 'react-ga';
-import { createBrowserHistory } from 'history';
 
 import seedColors from './seedColors';
 import { generatePalette } from './colorHelpers';
-
 
 ReactGA.initialize('UA-144187649-2', {
   debug: true,
@@ -22,15 +20,6 @@ ReactGA.initialize('UA-144187649-2', {
   }
 });
 ReactGA.pageview(window.location.pathname + window.location.search);
-
-const history = createBrowserHistory();
-
-// Initialize google analytics page view tracking
-// history.listen(location => {
-//   ReactGA.set({ page: location.pathname }); // Update the user's current page
-//   ReactGA.pageview(location.pathname); // Record a pageview for the given page
-// });
-
 
 class App extends React.Component {
   constructor(props) {
@@ -67,7 +56,7 @@ class App extends React.Component {
   
   render() {
     return (
-      <Route history={history}
+      <Route
         render={({location}) => (
           <TransitionGroup>
             <CSSTransition key={location.key} classNames='page' timeout={500}>
