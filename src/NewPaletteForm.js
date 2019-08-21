@@ -76,6 +76,7 @@ class NewPaletteForm extends React.Component {
     while(isDuplicateColor) {
       rand = Math.floor(Math.random() * allColors.length);
       randomColor = allColors[rand];
+      // eslint-disable-next-line
       isDuplicateColor = this.state.colors.some(color => color.name === randomColor.name);
     };
     this.setState({ colors: [...this.state.colors, randomColor] });
