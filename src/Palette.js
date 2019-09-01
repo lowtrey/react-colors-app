@@ -17,13 +17,13 @@ function Palette(props) {
   
   const colorBoxes = colors[level].map(color => (
     <ColorBox 
+      moreUrl={`/palette/${id}/${color.id}`}
       background={color[format]} 
+      showingFullPalette={true}
       name={color.name} 
+      paletteId={id}
       key={color.id} 
       id={color.id}
-      paletteId={id}
-      moreUrl={`/palette/${id}/${color.id}`}
-      showingFullPalette={true}
     />
   ));
 
