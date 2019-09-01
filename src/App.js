@@ -7,19 +7,8 @@ import Palette from './Palette';
 import PaletteList from './PaletteList';
 import SingleColorPalette from './SingleColorPalette';
 
-import ReactGA from 'react-ga';
-
 import seedColors from './seedColors';
 import { generatePalette } from './colorHelpers';
-
-ReactGA.initialize('UA-144187649-2', {
-  debug: true,
-  titleCase: false,
-  gaOptions: {
-    userId: 123
-  }
-});
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 class App extends React.Component {
   constructor(props) {
@@ -66,9 +55,9 @@ class App extends React.Component {
                   render={(routeProps) => (
                     <Page>
                       <PaletteList 
+                        {...routeProps} 
                         palettes={this.state.palettes} 
                         deletePalette={this.deletePalette}
-                        {...routeProps} 
                       />
                     </Page>
                   )} 
@@ -78,9 +67,9 @@ class App extends React.Component {
                   render={(routeProps) => (
                     <Page>
                       <NewPaletteForm 
+                        {...routeProps}
                         savePalette={this.savePalette} 
                         palettes={this.state.palettes}
-                        {...routeProps} 
                       />
                     </Page>
                   )} 
@@ -114,9 +103,9 @@ class App extends React.Component {
                   render={(routeProps) => (
                     <Page>
                       <PaletteList 
+                        {...routeProps} 
                         palettes={this.state.palettes} 
                         deletePalette={this.deletePalette}
-                        {...routeProps} 
                       />
                     </Page>
                   )} 
